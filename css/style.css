@@ -1,0 +1,603 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f7f7f7;
+    scroll-behavior: smooth;
+    font-family: 'Source Code Pro', monospace;
+    position: relative;
+}
+
+h1, h2{
+    font-family: 'Irish Grover', cursive !important;
+}
+
+.scrol-top{
+    background-color: #f18904;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 100;
+}
+
+#btnUp{
+    display: none;
+}
+
+.scrol-top a{
+    color: #fff;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: top 1s infinite;
+}
+
+@keyframes top{
+    from{
+        bottom: 0;
+    }
+    to{
+        bottom: 20%;
+    }
+}
+/********************* Header ************************************/
+#header{
+    height: 100vh;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    background: linear-gradient(#000, #000);
+    z-index: 2000;
+}
+
+nav{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    position: absolute ;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1.2rem;
+    z-index: 100;
+}
+
+nav button{
+    color: #f18904;
+}
+
+.logo{
+    color: #f49f05;
+    font-weight: 800;
+    font-size: 2rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+#navbarNav li{
+    margin-left: .5rem;
+}
+
+#navbarNav a{
+    position: relative;
+    color: #fff;
+    z-index: 10;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 4px 14px;
+}
+
+#navbarNav .active{
+    background-color: #f18904;
+    color: #fff;
+}
+
+#navbarNav a:hover{
+    background-color: #f18904;
+    color: #fff;
+}
+#header video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    opacity: .50;
+}
+
+@media (max-width: 1100px) {
+    #header video{
+        display: none;
+    }
+    #header{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.507)), url(../imgs/header-mountain.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: animatedBackground 10s linear infinite alternate;
+    }
+    @keyframes animatedBackground {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100% 0;
+        }
+      }
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #dbd8d8;
+    transform: translateY(50%);
+}
+
+@media (max-width: 900px){
+    .header-content{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateY(20%);
+    }
+    .header-content .left-side .map{
+        transform: translateY(0);
+    }
+}
+
+.header-content .left-side .map{
+    transform: translateY(-.1rem);
+    color: #fff;
+}
+
+.header-content .left-side h1{
+    color: #fff;
+    font-size: 4rem;
+}
+
+.header-content .left-side h1 span{
+    color: #f18904;
+}
+
+.header-content .right-side{
+    margin: 0 2rem 8% 0;
+    line-height: 50px;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.header-content .right-side::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 80%;
+    top: 5%;
+    bottom: 5%;
+    left: -1rem;
+    background-color: #f18904;
+}
+
+.header-content .right-side .temp img{
+    height: 5rem;
+}
+
+.header-content .right-side .temp p{
+    margin: 0 !important;
+}
+
+.date .icon a{
+    color: #f18904;
+    margin-left: 1.8rem;
+}
+
+
+
+.test{
+    color: #f18904;
+    background-color: #f49f05;
+    background-color: #BDA589;
+    background-color: #f3cd05;
+
+}
+
+/********************* Header ************************************/
+
+#data{
+    padding: 5rem;
+}
+
+#data .search{
+    display: flex;
+}
+
+#data .search input{
+    border: 1px solid #f18904;
+    padding: 6px 14px;
+    border-radius: 6rem;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    outline: #f18904;
+    width: 90%;
+    border-right: none;
+}
+
+#data .search a{
+    width: 10%;
+    border: 1px solid #f18904;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-right-radius: 6rem;
+    border-top-right-radius: 6rem;
+    background-color: #f18904;
+    color: #fff;
+}
+
+@media (max-width: 900px){
+    #data .search input{
+        width: 80%;
+    }
+    #data .search a{
+        width: 20%;
+    }
+}
+
+#data .search input:focus{
+    outline: #000;
+}
+
+.cards .day{
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) , url(../imgs/card.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    color: #fff;
+    margin-bottom: 1rem;
+    animation: backgroundCard 10s linear infinite alternate;
+
+}
+
+.cards .current{
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) , url(../imgs/card.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: backgroundCard 8s linear infinite alternate;
+    box-shadow: 0px 8px 20px 0px #000;
+}
+
+@keyframes backgroundCard {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+
+.cards .day .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    height: 90%;
+}
+
+.cards .day .current-day, .cards .day .after-tomorow-day, .cards .day .tomorow-day{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem 1rem;
+    background:#f49f05;
+    height: 10%;
+}
+
+.cards .day .city{
+    padding: 0 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.cards .day .temp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .5rem;
+}
+
+.cards .day .temp h3{
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.cards .day .temp img{
+    width: 5rem;
+}
+
+.cards .day .icon img{
+    width: 7rem;
+}
+
+.cards .max-temp h6{
+    font-size: 3rem;
+}
+
+.cards .day .min-temp h6{
+    font-size: 1.5rem;
+}
+
+.cards .status{
+    padding: 0 .5rem;
+    color: #f49f05;
+    font-size: 1rem;
+}
+
+.cards .icons{
+    padding: .5rem;
+}
+
+.cards .icons a{
+    margin-right: 6px;
+}
+
+.cards p{
+    margin: 0;
+}
+/********************* Mobile App ************************************/
+#mobileApp{
+    background-color: #fff;
+    padding: 4rem;
+    margin: 1rem 0;
+}
+
+#mobileApp .mobile img{
+    width: 100%;
+}
+
+#mobileApp .mobile-content{
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+} 
+
+#mobileApp .mobile-content h2{
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: #f49f05;
+}
+#mobileApp .mobile-content p{
+    margin: 0;
+    color: rgb(168, 167, 167);
+}
+#mobileApp .mobile-content .button, #subscribe .button{
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    color: #f18904;
+    position: relative;
+    overflow: hidden;
+    margin: .5rem 0;
+}
+
+#mobileApp .mobile-content .button::after, #subscribe .button::after{
+    content:'Download Android';
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #f18904;
+    border-radius: 10px;
+    background-color: #f18904;display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(-101%);
+    transition: all .3s ease;
+}
+
+#mobileApp .mobile-content .ios::after{
+    content: 'Download IOS';
+}
+
+#mobileApp .mobile-content .button::before, #subscribe .button::before{
+    content:'Download Android';
+    color: #f18904;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #f18904;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all .3s ease;
+}
+
+#mobileApp .mobile-content .ios::before{
+    content: 'Download IOS';
+}
+
+#mobileApp .mobile-content .button:hover:after, #subscribe .button:hover:after{
+    transform: translateX(0);
+}
+
+#mobileApp .mobile-content .button:hover::before, #subscribe .button:hover::before{
+    transform: translateX(101%);
+}
+
+/********************* Subscribe ************************************/
+#subscribe{
+    position: relative;
+    height: 80vh;
+    margin-top: 3rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#subscribe video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: .5;
+}
+
+@media (max-width: 870px) {
+    #subscribe video{
+        display: none;
+    }
+    #subscribe{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../imgs/subscribe1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+#subscribe .content{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8));
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    
+}
+
+#subscribe .content h2{
+    color: #f18904;
+    font-size: 3rem;
+}
+
+#subscribe .content p{
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+
+#subscribe .form-group{
+    flex-direction: column;
+}
+
+#subscribe input{
+    border: 1px solid #f18904;
+    border-radius: 100px;
+    padding: 10px;
+    width: 100%;
+}
+
+#subscribe input:focus{
+    background-color: #fff;
+}
+
+#subscribe .sub-header p{
+    color: red;
+    margin: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+#subscribe .button, #subscribe .sub::before, #subscribe .sub::after{
+    border-radius: 30px;
+}
+
+#subscribe .sub::before{
+    content: 'Subscribe';
+}
+
+#subscribe .sub::after{
+    content: 'Subscribe';
+}
+
+
+#subscribe .pop-message{
+    background-color: #fff;
+    z-index: 12;
+    position: absolute;
+    left: 50%;
+    top: 17%;
+    transform: translate(-50%,-200%);
+    width: 30%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-radius: 30px;
+    transition: all .3s ease;
+}
+
+.disapper{
+    transform: translate(-50%, 0);
+}
+
+#subscribe .pop-message h5{
+    color: #f49f05;
+    font-weight: 600;
+}
+/********************* Footer ************************************/
+#footer{
+    background: linear-gradient(90deg, rgba(241,137,4,1) 6%, rgba(243,205,5,1) 67%, rgba(244,159,5,1) 100%);
+    position: absolute;
+    bottom: -11.5%;
+    left: 0;
+    right: 0;
+}
+
+#footer h6{
+    color: #fff;
+}
+
+#footer a{
+    color: #fff;
+    font-size: 1.4rem;
+    margin-right: 6px;
+}
+
+#footer .face:hover{
+    color: #24365c;
+}
+
+#footer .twitter:hover{
+    color: #52a8e5;
+}
+
+#footer .insta:hover{
+    color: #aa32b2;
+}
+
+#footer .google:hover{
+    color: #d14c41;
+}
